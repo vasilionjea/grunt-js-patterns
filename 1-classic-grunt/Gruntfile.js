@@ -5,7 +5,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     concat: {
-      options: {},
+      options: {
+        stripBanners: true
+      },
 
       css: {
         src: [
@@ -62,6 +64,20 @@ module.exports = function(grunt) {
           'dist/js/html5_shiv.min.js': 'js/vendors/html5_shiv.js'
         }
       }
+    },
+
+    cssmin: {
+      optons: { report: 'min' },
+
+      dist: {
+        src: ['dist/css/style.css'],
+        dest: 'dist/css/style.min.css'
+      }
+    },
+
+    // remove unused files from the 'dist' directory
+    clean: {
+      dist: ['dist/css/style.css']
     }
   });
 
@@ -71,8 +87,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
 
   // Register tasks
-  grunt.registerTask('default', ['concat', 'copy']);
+  grunt.registerTask('default', ['concat', 'cssmin', 'copy', 'clean']);
 };
