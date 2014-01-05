@@ -50,16 +50,29 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+
+    copy: {
+      options: {},
+
+      // these JS files are already minified so we're just copying them over
+      js_head: {
+        files: {
+          'dist/js/modernizr.min.js': 'js/vendors/modernizr.js',
+          'dist/js/html5_shiv.min.js': 'js/vendors/html5_shiv.js'
+        }
+      }
     }
   });
 
 
   // Load the Grunt plugins
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
 
   // Register tasks
-  grunt.registerTask('default', ['concat']);
+  grunt.registerTask('default', ['concat', 'copy']);
 };
