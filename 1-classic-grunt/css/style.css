@@ -1,0 +1,39 @@
+/* Mozilla */
+::-moz-selection {
+  background-color: rgba(227, 68, 10, 0.4);
+  color: #000;
+}
+/* Safari */
+::selection {
+  background-color: rgba(227, 68, 10, 0.4);
+  color: #000;
+}
+body {
+  overflow-y: scroll; /* page-shift fix */
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #414141;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+}
+h1 small, h2 small, h3 small {
+  font-weight: normal;
+  font-size: 60%;
+  color: #a9a9a9;
+}
+p, ul, ol {
+  font-size: 1em;
+}
+a {
+  color: #007DCF;
+}
+a:hover {
+  color: #0AF;
+  text-decoration: none;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 10%;
+}
