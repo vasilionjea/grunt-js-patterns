@@ -5,4 +5,10 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json')
     
   });
+
+
+  // Load the Grunt plugins
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 };
