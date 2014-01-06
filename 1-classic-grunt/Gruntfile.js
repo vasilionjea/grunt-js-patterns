@@ -74,6 +74,11 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options: {
+        report: 'min',
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+
       dist: {
         files: {
           'dist/js/vendors.min.js': 'dist/js/vendors.js',
