@@ -4,6 +4,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    /* 
+     * The `concat` task
+     */
     concat: {
       options: {
         stripBanners: true
@@ -54,6 +57,9 @@ module.exports = function(grunt) {
       }
     },
 
+    /* 
+     * The `cssmin` task
+     */
     cssmin: {
       options: { report: 'min' },
 
@@ -61,8 +67,11 @@ module.exports = function(grunt) {
         src: ['dist/css/style.css'],
         dest: 'dist/css/style.min.css'
       }
-    },    
+    },
 
+    /* 
+     * The `copy` task
+     */
     copy: {
       // these JS files are already minified so we're just copying them over
       js_head: {
@@ -73,9 +82,12 @@ module.exports = function(grunt) {
       }
     },
 
+    /* 
+     * The `uglify` task
+     */
     uglify: {
       options: {
-        report: 'min',
+        report: 'gzip', // it let's you know how much you would save if your server Gziped the file
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
 
@@ -88,7 +100,10 @@ module.exports = function(grunt) {
       }
     },
 
-    // remove unused files from the 'dist' directory
+    /*
+     * The `clean` task
+     * Removes unused files from the 'dist' directory
+     */
     clean: {
       dist: ['dist/css/style.css', 'dist/js/vendors.js', 'dist/js/plugins.js', 'dist/js/app.js']
     }
