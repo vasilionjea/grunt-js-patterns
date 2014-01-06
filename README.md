@@ -10,3 +10,5 @@
 
 
 Now a `dist/` directory should appear in the same folder and should include the distribution ready CSS and JavaScript files.
+
+**Note:** it's assumed that you have already installed NodeJS, NPM, and the Grunt CLI.
