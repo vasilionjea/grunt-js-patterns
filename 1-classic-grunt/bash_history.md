@@ -39,3 +39,8 @@
 	
 	npm install
 	git commit Gruntfile.js -m "Installing npm modules & loading in Grunt plugins"
+	
+#### When done with this pattern/tutorial
+
+	git checkout master
+	git merge 1-classic-grunt
