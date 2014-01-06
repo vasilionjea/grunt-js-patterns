@@ -87,7 +87,7 @@ module.exports = function(grunt) {
      */
     uglify: {
       options: {
-        report: 'gzip', // it let's you know how much you would save if your server Gziped the file
+        report: 'min', // it let's you know how much you would save if your server Gziped the file - set to 'min' for faster results
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
 
@@ -106,7 +106,33 @@ module.exports = function(grunt) {
      */
     clean: {
       dist: ['dist/css/style.css', 'dist/js/vendors.js', 'dist/js/plugins.js', 'dist/js/app.js']
-    }
+    },
+
+    /* 
+     * The `watch` task
+     * Run this task with the `grunt watch` command.
+     */
+     watch: {
+      css: {
+        files: ['css/**/*.css'],
+        tasks: [
+          'concat:css',
+          'cssmin',
+          'clean'
+        ]
+      },
+
+      js: {
+        files: ['js/**/*.js'],
+        tasks: [
+          'concat:js_body_vendors',
+          'concat:js_body_plugins',
+          'concat:js_body_app',
+          'uglify',
+          'clean'
+        ]
+      }      
+     }
   });
 
 
@@ -116,6 +142,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
 
   // Register tasks
