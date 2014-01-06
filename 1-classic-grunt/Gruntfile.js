@@ -54,9 +54,16 @@ module.exports = function(grunt) {
       }
     },
 
-    copy: {
-      options: {},
+    cssmin: {
+      options: { report: 'min' },
 
+      dist: {
+        src: ['dist/css/style.css'],
+        dest: 'dist/css/style.min.css'
+      }
+    },    
+
+    copy: {
       // these JS files are already minified so we're just copying them over
       js_head: {
         files: {
@@ -66,18 +73,19 @@ module.exports = function(grunt) {
       }
     },
 
-    cssmin: {
-      optons: { report: 'min' },
-
+    uglify: {
       dist: {
-        src: ['dist/css/style.css'],
-        dest: 'dist/css/style.min.css'
+        files: {
+          'dist/js/vendors.min.js': 'dist/js/vendors.js',
+          'dist/js/plugins.min.js': 'dist/js/plugins.js',
+          'dist/js/app.min.js': 'dist/js/app.js'
+        }
       }
     },
 
     // remove unused files from the 'dist' directory
     clean: {
-      dist: ['dist/css/style.css']
+      dist: ['dist/css/style.css', 'dist/js/vendors.js', 'dist/js/plugins.js', 'dist/js/app.js']
     }
   });
 
@@ -91,5 +99,5 @@ module.exports = function(grunt) {
 
 
   // Register tasks
-  grunt.registerTask('default', ['concat', 'cssmin', 'copy', 'clean']);
+  grunt.registerTask('default', ['concat', 'cssmin', 'copy', 'uglify', 'clean']);
 };
