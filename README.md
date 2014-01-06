@@ -2,7 +2,7 @@
 
 `1-classic/` is a non-grunt project.
 
-`1-classic-grunt` is the same project's directory but can be built with Grunt. Both exist so one can compare/contrast. To build it just do the following: 
+`1-classic-grunt/` is the same project's directory but can be built with Grunt. Both exist so one can compare/contrast. To build it just do the following: 
 
     cd 1-classic-grunt/
     npm install # install the devDependencies
