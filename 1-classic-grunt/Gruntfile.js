@@ -21,8 +21,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  console.log(g);
-
 
   // Register tasks
   grunt.registerTask('default', ['concat', 'cssmin', 'copy', 'uglify', 'clean']);
