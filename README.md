@@ -11,4 +11,4 @@
 
 Now a `dist/` directory should appear in the same folder and should include the distribution ready CSS and JavaScript files.
 
-**Note:** it's assumed that you have already installed [NodeJS](http://nodejs.org/), [NPM](https://github.com/npm/npm#fancy-install-unix), and the [Grunt CLI](http://gruntjs.com/getting-started).
+**Note:** It's assumed that you have already installed [NodeJS](http://nodejs.org/), [NPM](https://github.com/npm/npm#fancy-install-unix), and the [Grunt CLI](http://gruntjs.com/getting-started).
